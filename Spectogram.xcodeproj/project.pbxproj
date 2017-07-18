@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7BC988301F1A9A9100F40173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC9882F1F1A9A9100F40173 /* AppDelegate.swift */; };
+		7BC988321F1A9A9100F40173 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988311F1A9A9100F40173 /* ViewController.swift */; };
+		7BC988351F1A9A9100F40173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC988331F1A9A9100F40173 /* Main.storyboard */; };
+		7BC988371F1A9A9100F40173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC988361F1A9A9100F40173 /* Assets.xcassets */; };
+		7BC9883A1F1A9A9100F40173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC988381F1A9A9100F40173 /* LaunchScreen.storyboard */; };
+		7BC988451F1A9A9100F40173 /* SpectogramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988441F1A9A9100F40173 /* SpectogramTests.swift */; };
+		7BC988501F1B72BF00F40173 /* FFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC9884F1F1B72BF00F40173 /* FFTView.swift */; };
+		7BC988521F1B815100F40173 /* SpectogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988511F1B815100F40173 /* SpectogramView.swift */; };
+		7BC988541F1B81EC00F40173 /* SpectogramSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7BC988411F1A9A9100F40173 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC988241F1A9A9100F40173 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BC9882B1F1A9A9100F40173;
+			remoteInfo = Spectogram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7BC9882C1F1A9A9100F40173 /* Spectogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spectogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC9882F1F1A9A9100F40173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7BC988311F1A9A9100F40173 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7BC988341F1A9A9100F40173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7BC988361F1A9A9100F40173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BC988391F1A9A9100F40173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7BC9883B1F1A9A9100F40173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BC988401F1A9A9100F40173 /* SpectogramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectogramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC988441F1A9A9100F40173 /* SpectogramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectogramTests.swift; sourceTree = "<group>"; };
+		7BC988461F1A9A9100F40173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BC9884F1F1B72BF00F40173 /* FFTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTView.swift; sourceTree = "<group>"; };
+		7BC988511F1B815100F40173 /* SpectogramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectogramView.swift; sourceTree = "<group>"; };
+		7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectogramSliceView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BC988291F1A9A9100F40173 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC9883D1F1A9A9100F40173 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7BC988231F1A9A9100F40173 = {
+			isa = PBXGroup;
+			children = (
+				7BC9882E1F1A9A9100F40173 /* Spectogram */,
+				7BC988431F1A9A9100F40173 /* SpectogramTests */,
+				7BC9882D1F1A9A9100F40173 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7BC9882D1F1A9A9100F40173 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BC9882C1F1A9A9100F40173 /* Spectogram.app */,
+				7BC988401F1A9A9100F40173 /* SpectogramTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BC9882E1F1A9A9100F40173 /* Spectogram */ = {
+			isa = PBXGroup;
+			children = (
+				7BC9882F1F1A9A9100F40173 /* AppDelegate.swift */,
+				7BC988311F1A9A9100F40173 /* ViewController.swift */,
+				7BC988331F1A9A9100F40173 /* Main.storyboard */,
+				7BC988361F1A9A9100F40173 /* Assets.xcassets */,
+				7BC988381F1A9A9100F40173 /* LaunchScreen.storyboard */,
+				7BC9883B1F1A9A9100F40173 /* Info.plist */,
+				7BC9884F1F1B72BF00F40173 /* FFTView.swift */,
+				7BC988511F1B815100F40173 /* SpectogramView.swift */,
+				7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */,
+			);
+			path = Spectogram;
+			sourceTree = "<group>";
+		};
+		7BC988431F1A9A9100F40173 /* SpectogramTests */ = {
+			isa = PBXGroup;
+			children = (
+				7BC988441F1A9A9100F40173 /* SpectogramTests.swift */,
+				7BC988461F1A9A9100F40173 /* Info.plist */,
+			);
+			path = SpectogramTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7BC9882B1F1A9A9100F40173 /* Spectogram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC988491F1A9A9100F40173 /* Build configuration list for PBXNativeTarget "Spectogram" */;
+			buildPhases = (
+				7BC988281F1A9A9100F40173 /* Sources */,
+				7BC988291F1A9A9100F40173 /* Frameworks */,
+				7BC9882A1F1A9A9100F40173 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spectogram;
+			productName = Spectogram;
+			productReference = 7BC9882C1F1A9A9100F40173 /* Spectogram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7BC9883F1F1A9A9100F40173 /* SpectogramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC9884C1F1A9A9100F40173 /* Build configuration list for PBXNativeTarget "SpectogramTests" */;
+			buildPhases = (
+				7BC9883C1F1A9A9100F40173 /* Sources */,
+				7BC9883D1F1A9A9100F40173 /* Frameworks */,
+				7BC9883E1F1A9A9100F40173 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BC988421F1A9A9100F40173 /* PBXTargetDependency */,
+			);
+			name = SpectogramTests;
+			productName = SpectogramTests;
+			productReference = 7BC988401F1A9A9100F40173 /* SpectogramTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BC988241F1A9A9100F40173 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = SA;
+				TargetAttributes = {
+					7BC9882B1F1A9A9100F40173 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7ZU87GRL8X;
+						ProvisioningStyle = Automatic;
+					};
+					7BC9883F1F1A9A9100F40173 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7ZU87GRL8X;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7BC9882B1F1A9A9100F40173;
+					};
+				};
+			};
+			buildConfigurationList = 7BC988271F1A9A9100F40173 /* Build configuration list for PBXProject "Spectogram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7BC988231F1A9A9100F40173;
+			productRefGroup = 7BC9882D1F1A9A9100F40173 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BC9882B1F1A9A9100F40173 /* Spectogram */,
+				7BC9883F1F1A9A9100F40173 /* SpectogramTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7BC9882A1F1A9A9100F40173 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC9883A1F1A9A9100F40173 /* LaunchScreen.storyboard in Resources */,
+				7BC988371F1A9A9100F40173 /* Assets.xcassets in Resources */,
+				7BC988351F1A9A9100F40173 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC9883E1F1A9A9100F40173 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7BC988281F1A9A9100F40173 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC988541F1B81EC00F40173 /* SpectogramSliceView.swift in Sources */,
+				7BC988501F1B72BF00F40173 /* FFTView.swift in Sources */,
+				7BC988321F1A9A9100F40173 /* ViewController.swift in Sources */,
+				7BC988301F1A9A9100F40173 /* AppDelegate.swift in Sources */,
+				7BC988521F1B815100F40173 /* SpectogramView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC9883C1F1A9A9100F40173 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC988451F1A9A9100F40173 /* SpectogramTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7BC988421F1A9A9100F40173 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BC9882B1F1A9A9100F40173 /* Spectogram */;
+			targetProxy = 7BC988411F1A9A9100F40173 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7BC988331F1A9A9100F40173 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC988341F1A9A9100F40173 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7BC988381F1A9A9100F40173 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BC988391F1A9A9100F40173 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7BC988471F1A9A9100F40173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7BC988481F1A9A9100F40173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BC9884A1F1A9A9100F40173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7ZU87GRL8X;
+				INFOPLIST_FILE = Spectogram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SA.Spectogram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7BC9884B1F1A9A9100F40173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7ZU87GRL8X;
+				INFOPLIST_FILE = Spectogram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SA.Spectogram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7BC9884D1F1A9A9100F40173 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7ZU87GRL8X;
+				INFOPLIST_FILE = SpectogramTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SA.SpectogramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spectogram.app/Spectogram";
+			};
+			name = Debug;
+		};
+		7BC9884E1F1A9A9100F40173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7ZU87GRL8X;
+				INFOPLIST_FILE = SpectogramTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SA.SpectogramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spectogram.app/Spectogram";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7BC988271F1A9A9100F40173 /* Build configuration list for PBXProject "Spectogram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC988471F1A9A9100F40173 /* Debug */,
+				7BC988481F1A9A9100F40173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BC988491F1A9A9100F40173 /* Build configuration list for PBXNativeTarget "Spectogram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC9884A1F1A9A9100F40173 /* Debug */,
+				7BC9884B1F1A9A9100F40173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7BC9884C1F1A9A9100F40173 /* Build configuration list for PBXNativeTarget "SpectogramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC9884D1F1A9A9100F40173 /* Debug */,
+				7BC9884E1F1A9A9100F40173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BC988241F1A9A9100F40173 /* Project object */;
+}
