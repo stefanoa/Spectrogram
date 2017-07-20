@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B048E811F204A8E00067107 /* fft.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = fft.playground; sourceTree = "<group>"; };
 		7BC9882C1F1A9A9100F40173 /* Spectogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spectogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC9882F1F1A9A9100F40173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC988311F1A9A9100F40173 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 				7BC9884F1F1B72BF00F40173 /* FFTView.swift */,
 				7BC988511F1B815100F40173 /* SpectogramView.swift */,
 				7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */,
+				7B048E811F204A8E00067107 /* fft.playground */,
 			);
 			path = Spectogram;
 			sourceTree = "<group>";
@@ -422,6 +424,7 @@
 				7BC9884B1F1A9A9100F40173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BC9884C1F1A9A9100F40173 /* Build configuration list for PBXNativeTarget "SpectogramTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +433,7 @@
 				7BC9884E1F1A9A9100F40173 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

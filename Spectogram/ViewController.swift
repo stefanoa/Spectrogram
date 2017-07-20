@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     var state:SpectogramState = .idle
     let sliceSize:Int = 512
-    let downSample:Int = 4
+    let downSample:Int = 8
     var inputSlice:[Float]=[]
 
     var window :[Float]=[]
