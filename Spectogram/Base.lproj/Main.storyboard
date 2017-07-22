@@ -20,23 +20,8 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkE-FD-cGO" customClass="SpectogramView" customModule="Spectogram" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dkE-FD-cGO" secondAttribute="bottom" id="DEU-BW-gyH"/>
-                            <constraint firstItem="dkE-FD-cGO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="m9X-3v-5kP"/>
-                            <constraint firstAttribute="trailing" secondItem="dkE-FD-cGO" secondAttribute="trailing" id="rm0-df-O1F"/>
-                            <constraint firstItem="dkE-FD-cGO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rpE-ZZ-xDC"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="spectogramView" destination="dkE-FD-cGO" id="oc8-yt-HLO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,6 +16,7 @@
 		7BC988501F1B72BF00F40173 /* FFTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC9884F1F1B72BF00F40173 /* FFTView.swift */; };
 		7BC988521F1B815100F40173 /* SpectogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988511F1B815100F40173 /* SpectogramView.swift */; };
 		7BC988541F1B81EC00F40173 /* SpectogramSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */; };
+		7BEB8F1F1F232B76001073AA /* Spectogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB8F1E1F232B76001073AA /* Spectogram.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		7BC9884F1F1B72BF00F40173 /* FFTView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFTView.swift; sourceTree = "<group>"; };
 		7BC988511F1B815100F40173 /* SpectogramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectogramView.swift; sourceTree = "<group>"; };
 		7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectogramSliceView.swift; sourceTree = "<group>"; };
+		7BEB8F1E1F232B76001073AA /* Spectogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spectogram.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				7BC988381F1A9A9100F40173 /* LaunchScreen.storyboard */,
 				7BC9883B1F1A9A9100F40173 /* Info.plist */,
 				7BC9884F1F1B72BF00F40173 /* FFTView.swift */,
+				7BEB8F1E1F232B76001073AA /* Spectogram.swift */,
 				7BC988511F1B815100F40173 /* SpectogramView.swift */,
 				7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */,
 				7B048E811F204A8E00067107 /* fft.playground */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEB8F1F1F232B76001073AA /* Spectogram.swift in Sources */,
 				7BC988541F1B81EC00F40173 /* SpectogramSliceView.swift in Sources */,
 				7BC988501F1B72BF00F40173 /* FFTView.swift in Sources */,
 				7BC988321F1A9A9100F40173 /* ViewController.swift in Sources */,
