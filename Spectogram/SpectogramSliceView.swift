@@ -28,16 +28,16 @@ class SpectogramSliceView: UIView {
             let height = self.frame.size.height
             let deltaY = height/CGFloat(slice.count)
             var max:Float = 0;
-            var maxV:Float = 0;
+            var maxIndex:Int = 0;
             UIColor.clear.setStroke()
             ctx.setLineWidth(0)
             for i in 0...slice.count-1{
                 let v = slice[i]
                 var r = log10(v/0.1)
                 if( r > max ){
-                  max = r
+                    max = r
+                    maxIndex = i
                 }
-                maxV = v>maxV ? v : maxV
                 r = r < 0.1 ? 0:r
                 let y = CGFloat(i)*deltaY
                 let rect = CGRect(x: 0, y:y, width: width, height: deltaY)
@@ -47,7 +47,7 @@ class SpectogramSliceView: UIView {
                 
                 
             }
-            print("max:\(max),\(maxV)")
+            print("max:\(max),\(maxIndex)")
         }
     }
 

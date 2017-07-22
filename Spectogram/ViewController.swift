@@ -29,15 +29,14 @@ class ViewController: UIViewController {
     var inputSlice:[Float]=[]
 
     func tap(){
-   /*
+        
         if state == .idle {
             try! audioEngine.start()
             state = .started
         }else if state == .started {
             audioEngine.stop()
             state = .idle
-        }*/
-        
+        }
     }
 
     
@@ -55,7 +54,7 @@ class ViewController: UIViewController {
         //var lastDate = Date()
         let sliceSize = 512
         let ds = 4
-        spectrogram = Spectogram(sliceSize: sliceSize, downsamplingRate: ds)
+        spectrogram = Spectogram(sliceSize: sliceSize)
         inputSlice = [Float](repeating: 0, count: sliceSize)
         inputNode?.installTap(onBus: bus, bufferSize: UInt32(sliceSize), format: inputNode?.inputFormat(forBus: bus)) {
             (buffer: AVAudioPCMBuffer!, time: AVAudioTime!) -> Void in
@@ -95,6 +94,6 @@ class ViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
         self.view.addGestureRecognizer(tapRecognizer)
     }
-
+    
 }
 

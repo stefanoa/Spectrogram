@@ -11,7 +11,6 @@ import Accelerate
 
 class Spectogram {
     let sliceSize:Int
-    let downsamplingRate:Int
     let log2n:UInt
     let fftSetup:FFTSetup
 
@@ -20,9 +19,8 @@ class Spectogram {
     var windowed:[Float]
     var outputSlice:DSPSplitComplex
     
-    init(sliceSize:Int, downsamplingRate:Int){
+    init(sliceSize:Int){
         self.sliceSize = sliceSize
-        self.downsamplingRate = downsamplingRate
         log2n = UInt(round(log2(Double(sliceSize))))
         window = [Float](repeating: 0, count: sliceSize)
         windowed = [Float](repeating: 0, count: sliceSize)
