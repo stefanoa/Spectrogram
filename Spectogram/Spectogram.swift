@@ -39,9 +39,9 @@ class Spectogram {
         let csize = size/2
         
        
-        vDSP_vmul(samples, 1, &window, 1, &windowed, 1, vDSP_Length(size))
-        let temp = UnsafePointer<Float>(windowed)
-        temp.withMemoryRebound(to: DSPComplex.self, capacity: windowed.count) { (typeConvertedTransferBuffer) -> Void in
+        //vDSP_vmul(samples, 1, &window, 1, &windowed, 1, vDSP_Length(size))
+        let temp = UnsafePointer<Float>(samples)
+        temp.withMemoryRebound(to: DSPComplex.self, capacity: samples.count) { (typeConvertedTransferBuffer) -> Void in
             vDSP_ctoz(typeConvertedTransferBuffer, 2, &outputSlice, 1, vDSP_Length(csize))
         }
 

@@ -38,21 +38,22 @@ class SynteticViewController: UIViewController {
                 let nOn = self.numberOfNotes
                 let sliceSize = self.sliceSize
                 let duration = 3*sliceSize
-                var samples:[Float] = [Float](repeating: 0, count: sliceSize)
-                var isFirst = true
+                var samples:[Float] = []
                 for note in 0...nOn-1{
                     for i in 0...duration-1{
                         let index = (i+note*duration)
                         let x:Float = Float(index)/Float(rate)
-                        let k = (i+note*duration)%sliceSize
+                        let k = (i+note*duration)%(sliceSize/4)
       
-                        if k == 0 && !isFirst{
+                        if k == 0 && samples.count >= sliceSize{
                             print("---\(hz)----")
                             let sliceRes = self.spectrogram.processSamples(samples: samples)
                             self.spectrogramView.addSlice(slice: sliceRes)
                         }
-                        samples[k] = sin(2 * .pi*x*hz)
-                        isFirst = false
+                        samples.append(sin(2 * .pi*x*hz))
+                        if samples.count > sliceSize{
+                            samples.remove(at: 0)
+                        }
                     }
                     hz *= factor
                 }
