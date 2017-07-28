@@ -13,12 +13,14 @@ class SpectogramView: UIView {
     var slicesViews:[UIView] = []
 
     func addSlice(slice:[Float]){
-        let newFrame = CGRect(x:0, y:0, width:pixelPerSlice, height:frame.size.height)
-        let newSliceView = SpectogramSliceView(frame: newFrame)
-        newSliceView.slice = slice
         
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             let s = self
+            
+            let newFrame = CGRect(x:0, y:0, width:s.pixelPerSlice, height:s.frame.size.height)
+            let newSliceView = SpectogramSliceView(frame: newFrame)
+            newSliceView.slice = slice
+            
             for sliceView in s.slicesViews {
                 let sliceFrame = sliceView.frame.offsetBy(dx: s.pixelPerSlice, dy: 0)
                 sliceView.frame = sliceFrame
@@ -33,8 +35,8 @@ class SpectogramView: UIView {
                 s.frame = CGRect(x: s.frame.origin.x, y: s.frame.origin.y, width: width, height: s.frame.size.height)
             }
             
-            s.setNeedsDisplay()
-        }
+            //s.setNeedsDisplay()
+        //}
     }
     
 }

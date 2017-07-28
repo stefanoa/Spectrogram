@@ -22,9 +22,10 @@ var realp = [Float](repeating: 0, count: sliceSize/2)
 var imagp = [Float](repeating: 0, count: sliceSize/2)
 var outputSlice = DSPSplitComplex(realp: &realp, imagp: &imagp)
 
-for i in 0...sliceSize/3-1{
+let f1:Float = 8.1
+for i in 0...sliceSize-1{
     let x:Float = 2 * .pi * Float(i)/Float(sliceSize)
-    inputSlice[i] = sin(4*x)
+    inputSlice[i] = sin(f1*x)
 }
 
 //vDSP_vmul(&inputSlice, 1, &window, 1, &transfer, 1, vDSP_Length(sliceSize))
@@ -38,8 +39,7 @@ var magnitudes = [Float](repeating: 0.0, count: sliceSize/2)
 vDSP_zvmags(&outputSlice, 1, &magnitudes, 1, vDSP_Length(Int(sliceSize/2)))
 
 var normalizedMagnitudes = [Float](repeating: 0.0, count: sliceSize/2)
-vDSP_vsmul(sqrtq(magnitudes), 1, [2.0 / Float(sliceSize/2)], &normalizedMagnitudes, 1, vDSP_Length(sliceSize/2))
-
-for i in 0...sliceSize/2-1{
-    print("\(normalizedMagnitudes[i])")
+let csize = sliceSize/2
+for i in 0...csize-1{
+    normalizedMagnitudes[i] = sqrt(magnitudes[i])/Float(csize)
 }

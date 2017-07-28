@@ -25,13 +25,13 @@ class SynteticViewController: UIViewController {
     let rate:Int = 4096*2
     let numberOfNotes = 48
     let factor:Float = 1.059463
-    let sliceSize:Int = 1024
+    let sliceSize:Int = 2048
     
-    func tap(){
+    @objc func tap(){
         if state == .idle {
             state = .started
             
-            queue.async {
+            //queue.async {
                 var hz:Float = 130.81*2
                 let factor = self.factor
                 let rate = self.rate
@@ -43,21 +43,23 @@ class SynteticViewController: UIViewController {
                     for i in 0...duration-1{
                         let index = (i+note*duration)
                         let x:Float = Float(index)/Float(rate)
-                        let k = (i+note*duration)%(sliceSize/4)
+                        let k = (i+note*duration)%(sliceSize)
       
                         if k == 0 && samples.count >= sliceSize{
-                            print("---\(hz)----")
+                            //print("---\(hz)----")
                             let sliceRes = self.spectrogram.processSamples(samples: samples)
                             self.spectrogramView.addSlice(slice: sliceRes)
                         }
-                        samples.append(sin(2 * .pi*x*hz))
+                        samples.append(sin(2*Float.pi*x*hz))
                         if samples.count > sliceSize{
                             samples.remove(at: 0)
                         }
                     }
                     hz *= factor
                 }
-            }
+                self.scrollView.contentSize = self.spectrogramView.frame.size
+                
+            //}
         }
     }
     

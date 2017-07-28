@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var spectrogram:Spectogram!;
     var inputSlice:[Float]=[]
 
-    func tap(){
+    @objc func tap(){
         
         if state == .idle {
             try! audioEngine.start()
