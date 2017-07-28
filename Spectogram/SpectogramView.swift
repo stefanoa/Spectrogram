@@ -8,10 +8,19 @@
 
 import UIKit
 
-class SpectogramView: UIView {
+class SpectogramView: UIScrollView {
+    var containerView:UIView!
     var pixelPerSlice:CGFloat = 2
     var slicesViews:[UIView] = []
-
+    
+    func prepare(){
+        let containerFrame = CGRect(x:0,y:0,width:self.frame.size.width,height:self.frame.size.height)
+        containerView = UIView(frame: containerFrame)
+        self.addSubview(containerView)        
+        containerView.backgroundColor = .red
+        self.contentSize = containerView.frame.size
+    }
+    
     func addSlice(slice:[Float]){
         DispatchQueue.main.async {
             let s = self
@@ -28,17 +37,13 @@ class SpectogramView: UIView {
                 //}
             }
             s.slicesViews.append(newSliceView)
-            s.addSubview(newSliceView)
+            s.containerView.addSubview(newSliceView)
             if CGFloat(s.slicesViews.count)*s.pixelPerSlice > s.frame.size.width {
                 let width = CGFloat(s.slicesViews.count)*s.pixelPerSlice
-                s.frame = CGRect(x: s.frame.origin.x, y: s.frame.origin.y, width: width, height: s.frame.size.height)
+                s.containerView.frame = CGRect(x: s.frame.origin.x, y: s.frame.origin.y, width: width, height: s.frame.size.height)
             }
+            s.contentSize = s.containerView.frame.size
         }
     }
-    
-    func contentSize() -> CGSize {
-        let size = CGSize(width: pixelPerSlice*CGFloat(slicesViews.count), height:self.frame.size.height)
-        return size
-    }
-    
+        
 }

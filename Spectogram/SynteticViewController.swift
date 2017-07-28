@@ -18,7 +18,7 @@ enum ProductionState{
 class SynteticViewController: UIViewController {
     //@IBOutlet weak var fftView: FFTView!
     var scrollView:UIScrollView!
-    var spectrogramView:SpectogramView!
+    @IBOutlet weak var spectrogramView:SpectogramView!
     var spectrogram:Spectogram!;
     var queue:DispatchQueue = DispatchQueue(label: "sampleproduction")
     var state:ProductionState = .idle
@@ -61,22 +61,20 @@ class SynteticViewController: UIViewController {
         }
     }
     
-    
+    @objc func tap(){
+        synth()
+        spectrogramView.setNeedsDisplay()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView = UIScrollView(frame: view.bounds)
-        spectrogramView = SpectogramView(frame:scrollView.bounds)
-        self.scrollView.contentSize = self.spectrogramView.frame.size
-        
-        scrollView.addSubview(spectrogramView)
-        self.view.addSubview(scrollView)
-        
         spectrogram = Spectogram(sliceSize: sliceSize)
 
-        //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
-        //self.view.addGestureRecognizer(tapRecognizer)
-        synth()
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
+        self.view.addGestureRecognizer(tapRecognizer)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        spectrogramView.prepare()
+    }
    
 }
