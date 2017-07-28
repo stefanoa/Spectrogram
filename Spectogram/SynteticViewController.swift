@@ -27,7 +27,7 @@ class SynteticViewController: UIViewController {
     let factor:Float = 1.059463
     let sliceSize:Int = 2048
     
-    @objc func tap(){
+    func synth(){
         if state == .idle {
             state = .started
             
@@ -37,7 +37,7 @@ class SynteticViewController: UIViewController {
                 let rate = self.rate
                 let nOn = self.numberOfNotes
                 let sliceSize = self.sliceSize
-                let duration = 3*sliceSize
+                let duration = 10*sliceSize
                 var samples:[Float] = []
                 for note in 0...nOn-1{
                     for i in 0...duration-1{
@@ -57,8 +57,6 @@ class SynteticViewController: UIViewController {
                     }
                     hz *= factor
                 }
-                self.scrollView.contentSize = self.spectrogramView.frame.size
-                
             //}
         }
     }
@@ -75,8 +73,9 @@ class SynteticViewController: UIViewController {
         
         spectrogram = Spectogram(sliceSize: sliceSize)
 
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
-        self.view.addGestureRecognizer(tapRecognizer)
+        //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
+        //self.view.addGestureRecognizer(tapRecognizer)
+        synth()
     }
 
    

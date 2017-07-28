@@ -16,6 +16,8 @@ class Spectogram {
 
     var window :[Float]
     var magnitudes :[Float]
+    var realp:[Float]
+    var imagp:[Float]
     var windowed:[Float]
     var outputSlice:DSPSplitComplex
     
@@ -26,8 +28,8 @@ class Spectogram {
         windowed = [Float](repeating: 0, count: sliceSize)
         magnitudes = [Float](repeating: 0, count: sliceSize/2)
 
-        var realp = [Float](repeating: 0, count: sliceSize/2)
-        var imagp = [Float](repeating: 0, count: sliceSize/2)
+        realp = [Float](repeating: 0, count: sliceSize/2)
+        imagp = [Float](repeating: 0, count: sliceSize/2)
         outputSlice = DSPSplitComplex(realp: &realp, imagp: &imagp)
         
         fftSetup = vDSP_create_fftsetup(log2n, Int32(kFFTRadix2))!
@@ -40,18 +42,20 @@ class Spectogram {
         
        
         //vDSP_vmul(samples, 1, &window, 1, &windowed, 1, vDSP_Length(size))
-        let temp = UnsafePointer<Float>(samples)
-        temp.withMemoryRebound(to: DSPComplex.self, capacity: samples.count) { (typeConvertedTransferBuffer) -> Void in
+        let p = UnsafePointer<Float>(samples)
+        p.withMemoryRebound(to: DSPComplex.self, capacity: samples.count) { (typeConvertedTransferBuffer) -> Void in
             vDSP_ctoz(typeConvertedTransferBuffer, 2, &outputSlice, 1, vDSP_Length(csize))
         }
 
         vDSP_fft_zrip(self.fftSetup, &outputSlice, 1, log2n, FFTDirection(FFT_FORWARD))
         vDSP_zvmags(&outputSlice, 1, &magnitudes, 1, vDSP_Length(Int(csize)))
         
-        var normalizedMagnitudes = [Float](repeating: 0.0, count: Int(csize))
-        vDSP_vsmul(self.sqrtq(magnitudes), 1, [2.0 / Float(Int(csize))], &normalizedMagnitudes, 1, vDSP_Length(Int(csize)))
-
-        return normalizedMagnitudes
+        var nm = [Float](repeating: 0.0, count: Int(csize))
+        for i in 0...Int(csize-1) {
+            nm[i] = sqrt(magnitudes[i])/Float(csize)
+        }
+        
+        return nm
     }
     
     private func sqrtq(_ x: [Float]) -> [Float] {

@@ -13,8 +13,7 @@ class SpectogramView: UIView {
     var slicesViews:[UIView] = []
 
     func addSlice(slice:[Float]){
-        
-        //DispatchQueue.main.async {
+        DispatchQueue.main.async {
             let s = self
             
             let newFrame = CGRect(x:0, y:0, width:s.pixelPerSlice, height:s.frame.size.height)
@@ -34,9 +33,12 @@ class SpectogramView: UIView {
                 let width = CGFloat(s.slicesViews.count)*s.pixelPerSlice
                 s.frame = CGRect(x: s.frame.origin.x, y: s.frame.origin.y, width: width, height: s.frame.size.height)
             }
-            
-            //s.setNeedsDisplay()
-        //}
+        }
+    }
+    
+    func contentSize() -> CGSize {
+        let size = CGSize(width: pixelPerSlice*CGFloat(slicesViews.count), height:self.frame.size.height)
+        return size
     }
     
 }
