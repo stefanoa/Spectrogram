@@ -22,9 +22,8 @@ class SynteticViewController: UIViewController {
     var spectrogram:Spectogram!;
     var queue:DispatchQueue = DispatchQueue(label: "sampleproduction")
     var state:ProductionState = .idle
-    let rate:Int = 4096*2
-    let numberOfNotes = 48
-    let factor:Float = 1.059463
+    let sampleRate:Int = 4096*4
+    let numberOfNotes = 88
     let sliceSize:Int = 2048
     
     func synth(){
@@ -32,9 +31,8 @@ class SynteticViewController: UIViewController {
             state = .started
             
             //queue.async {
-                var hz:Float = 130.81*2
-                let factor = self.factor
-                let rate = self.rate
+                var hz:Float = 130.81/4
+                let rate = self.sampleRate
                 let nOn = self.numberOfNotes
                 let sliceSize = self.sliceSize
                 let duration = 10*sliceSize
@@ -55,7 +53,7 @@ class SynteticViewController: UIViewController {
                             samples.remove(at: 0)
                         }
                     }
-                    hz *= factor
+                    hz *= Spectogram.noteSeparation
                 }
             //}
         }
@@ -67,7 +65,7 @@ class SynteticViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        spectrogram = Spectogram(sliceSize: sliceSize)
+        spectrogram = Spectogram(sliceSize: sliceSize, frequency:44100)
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
         self.view.addGestureRecognizer(tapRecognizer)

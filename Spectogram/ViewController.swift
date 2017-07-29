@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         //var lastDate = Date()
         let sliceSize = 512
         let ds = 4
-        spectrogram = Spectogram(sliceSize: sliceSize)
+        spectrogram = Spectogram(sliceSize: sliceSize, frequency:44100)
         inputSlice = [Float](repeating: 0, count: sliceSize)
         inputNode?.installTap(onBus: bus, bufferSize: UInt32(sliceSize), format: inputNode?.inputFormat(forBus: bus)) {
             (buffer: AVAudioPCMBuffer!, time: AVAudioTime!) -> Void in

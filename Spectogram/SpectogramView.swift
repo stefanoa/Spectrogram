@@ -11,6 +11,8 @@ import UIKit
 class SpectogramView: UIScrollView {
     var containerView:UIView!
     var pixelPerSlice:CGFloat = 2
+    var frequency:CGFloat = 44100
+    var sliceSize:Int = 512
     var slicesViews:[UIView] = []
     
     func prepare(){

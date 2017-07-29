@@ -10,10 +10,14 @@ import Foundation
 import Accelerate
 
 class Spectogram {
+    static let noteSeparation:Float = 1.059463
+    
     let sliceSize:Int
+    let frequency:Float
     let log2n:UInt
     let fftSetup:FFTSetup
-
+    
+    
     var window :[Float]
     var magnitudes :[Float]
     var realp:[Float]
@@ -21,8 +25,9 @@ class Spectogram {
     var windowed:[Float]
     var outputSlice:DSPSplitComplex
     
-    init(sliceSize:Int){
+    init(sliceSize:Int, frequency:Float){
         self.sliceSize = sliceSize
+        self.frequency = frequency
         log2n = UInt(round(log2(Double(sliceSize))))
         window = [Float](repeating: 0, count: sliceSize)
         windowed = [Float](repeating: 0, count: sliceSize)
