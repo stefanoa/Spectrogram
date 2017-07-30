@@ -22,16 +22,16 @@ class SynteticViewController: UIViewController {
     var spectrogram:Spectogram!;
     var queue:DispatchQueue = DispatchQueue(label: "sampleproduction")
     var state:ProductionState = .idle
-    let sampleRate:Int = 4096*4
-    let numberOfNotes = 88
-    let sliceSize:Int = 2048
+    let sampleRate:Int = 44100
+    let numberOfNotes = 10
+    let sliceSize:Int = 512
     
     func synth(){
         if state == .idle {
             state = .started
             
             //queue.async {
-                var hz:Float = 130.81/4
+                var hz:Float = 130.81*16
                 let rate = self.sampleRate
                 let nOn = self.numberOfNotes
                 let sliceSize = self.sliceSize
@@ -44,7 +44,7 @@ class SynteticViewController: UIViewController {
                         let k = (i+note*duration)%(sliceSize)
       
                         if k == 0 && samples.count >= sliceSize{
-                            //print("---\(hz)----")
+                            //print("---\(hz),\(index)----")
                             let sliceRes = self.spectrogram.processSamples(samples: samples)
                             self.spectrogramView.addSlice(slice: sliceRes)
                         }
@@ -60,7 +60,6 @@ class SynteticViewController: UIViewController {
     }
     
     @objc func tap(){
-        synth()
         spectrogramView.setNeedsDisplay()
     }
     override func viewDidLoad() {
@@ -73,6 +72,7 @@ class SynteticViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         spectrogramView.prepare()
+        synth()
     }
    
 }

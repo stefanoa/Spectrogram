@@ -38,25 +38,26 @@ class SpectogramSliceView: UIView {
         if let slice = slice {
             let width = self.frame.size.width
             //let height = self.frame.size.height
-            let deltaY = pixelDeltaNote
             
             var max:Float = 0;
             var maxIndex:Int = 0;
             UIColor.clear.setStroke()
             ctx.setLineWidth(0)
+            var y0:CGFloat = 0
             for i in 0...slice.count-1{
                 let v = slice[i]
-                var r = log10(v/0.1)
-                if( r > max ){
-                    max = r
-                    maxIndex = i
+                //var r = log10(v/0.1)
+                if( v > max ){
+                   max = v
+                   maxIndex = i
                 }
-                r = r < 0.1 ? 0:r
+                //r = r < 0.1 ? 0:r
                 let y = (log(CGFloat(i+1))/log(CGFloat(Spectogram.noteSeparation)))*pixelDeltaNote
-                let rect = CGRect(x: 0, y:y, width: width, height: pixelDeltaNote)
-                let color = UIColor(white: 1-CGFloat(r), alpha: 1.0)
+                let rect = CGRect(x: 0, y:y, width: width, height: y-y0)
+                let color = UIColor(white: 1-CGFloat(v), alpha: 1.0)
                 color.setFill()
                 ctx.fill(rect)
+                y0 = y
             }
             print("max:\(max),\(maxIndex)")
         }

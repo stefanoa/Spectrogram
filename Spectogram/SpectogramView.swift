@@ -8,44 +8,31 @@
 
 import UIKit
 
-class SpectogramView: UIScrollView {
-    var containerView:UIView!
+class SpectogramView: UIScrollView,SpectogramDataSource {
+    var containerView:SpectogramContainerView!
     var pixelPerSlice:CGFloat = 2
-    var frequency:CGFloat = 44100
-    var sliceSize:Int = 512
     var slicesViews:[UIView] = []
+    var slices:[[Float]] = []
     
     func prepare(){
         let containerFrame = CGRect(x:0,y:0,width:self.frame.size.width,height:self.frame.size.height)
-        containerView = UIView(frame: containerFrame)
-        self.addSubview(containerView)        
-        containerView.backgroundColor = .red
-        self.contentSize = containerView.frame.size
+        containerView = SpectogramContainerView(frame: containerFrame)
+        self.addSubview(containerView)
+        containerView.dataSource = self
+        self.contentSize = containerView.getSize()
     }
     
     func addSlice(slice:[Float]){
-        DispatchQueue.main.async {
-            let s = self
-            
-            let newFrame = CGRect(x:0, y:0, width:s.pixelPerSlice, height:s.frame.size.height)
-            let newSliceView = SpectogramSliceView(frame: newFrame)
-            newSliceView.slice = slice
-            
-            for sliceView in s.slicesViews {
-                let sliceFrame = sliceView.frame.offsetBy(dx: s.pixelPerSlice, dy: 0)
-                sliceView.frame = sliceFrame
-                //if !(frame?.contains(sliceView.frame))!{
-                //    sliceView.removeFromSuperview()
-                //}
-            }
-            s.slicesViews.append(newSliceView)
-            s.containerView.addSubview(newSliceView)
-            if CGFloat(s.slicesViews.count)*s.pixelPerSlice > s.frame.size.width {
-                let width = CGFloat(s.slicesViews.count)*s.pixelPerSlice
-                s.containerView.frame = CGRect(x: s.frame.origin.x, y: s.frame.origin.y, width: width, height: s.frame.size.height)
-            }
-            s.contentSize = s.containerView.frame.size
-        }
+        slices.insert(slice, at: 0)
+        self.contentSize = containerView.getSize()
+        containerView.reloadData()
     }
-        
+    
+    func numberOfSlices() -> Int {
+        return slices.count
+    }
+    
+    func sliceAtIndex(_ index: Int) -> [Float] {
+        return slices[index]
+    }
 }

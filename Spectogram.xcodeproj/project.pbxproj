@@ -18,6 +18,7 @@
 		7BC988541F1B81EC00F40173 /* SpectogramSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */; };
 		7BEB8F1F1F232B76001073AA /* Spectogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB8F1E1F232B76001073AA /* Spectogram.swift */; };
 		7BEB8F211F238CD8001073AA /* SynteticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB8F201F238CD8001073AA /* SynteticViewController.swift */; };
+		7BF993FA1F2E2C7C005E018B /* SpectogramContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF993F91F2E2C7C005E018B /* SpectogramContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpectogramSliceView.swift; sourceTree = "<group>"; };
 		7BEB8F1E1F232B76001073AA /* Spectogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spectogram.swift; sourceTree = "<group>"; };
 		7BEB8F201F238CD8001073AA /* SynteticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynteticViewController.swift; sourceTree = "<group>"; };
+		7BF993F91F2E2C7C005E018B /* SpectogramContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectogramContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				7BC9884F1F1B72BF00F40173 /* FFTView.swift */,
 				7BEB8F1E1F232B76001073AA /* Spectogram.swift */,
 				7BC988511F1B815100F40173 /* SpectogramView.swift */,
+				7BF993F91F2E2C7C005E018B /* SpectogramContainerView.swift */,
 				7BC988531F1B81EC00F40173 /* SpectogramSliceView.swift */,
 				7B048E811F204A8E00067107 /* fft.playground */,
 				7BEB8F201F238CD8001073AA /* SynteticViewController.swift */,
@@ -221,6 +224,7 @@
 				7BEB8F1F1F232B76001073AA /* Spectogram.swift in Sources */,
 				7BEB8F211F238CD8001073AA /* SynteticViewController.swift in Sources */,
 				7BC988541F1B81EC00F40173 /* SpectogramSliceView.swift in Sources */,
+				7BF993FA1F2E2C7C005E018B /* SpectogramContainerView.swift in Sources */,
 				7BC988501F1B72BF00F40173 /* FFTView.swift in Sources */,
 				7BC988321F1A9A9100F40173 /* ViewController.swift in Sources */,
 				7BC988301F1A9A9100F40173 /* AppDelegate.swift in Sources */,
