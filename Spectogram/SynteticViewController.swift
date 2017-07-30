@@ -22,19 +22,18 @@ class SynteticViewController: UIViewController {
     var spectrogram:Spectogram!;
     var queue:DispatchQueue = DispatchQueue(label: "sampleproduction")
     var state:ProductionState = .idle
-    let sampleRate:Int = 44100
-    let numberOfNotes = 10
-    let sliceSize:Int = 512
+    let sampleRate:Int = 11000
+    let numberOfNotes = 88
+    let sliceSize:Int = 1024
     
     func synth(){
         if state == .idle {
             state = .started
             
             //queue.async {
-                var hz:Float = 130.81*16
+                var hz:Float = 27.5000
                 let rate = self.sampleRate
                 let nOn = self.numberOfNotes
-                let sliceSize = self.sliceSize
                 let duration = 10*sliceSize
                 var samples:[Float] = []
                 for note in 0...nOn-1{

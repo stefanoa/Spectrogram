@@ -17,6 +17,7 @@ class SpectogramView: UIScrollView,SpectogramDataSource {
     func prepare(){
         let containerFrame = CGRect(x:0,y:0,width:self.frame.size.width,height:self.frame.size.height)
         containerView = SpectogramContainerView(frame: containerFrame)
+        containerView.backgroundColor = UIColor.white
         self.addSubview(containerView)
         containerView.dataSource = self
         self.contentSize = containerView.getSize()
