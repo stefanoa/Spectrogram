@@ -15,7 +15,7 @@ protocol SpectogramDataSource {
 
 class SpectogramContainerView:UIView{
     var dataSource:SpectogramDataSource!
-    var pixelPerSlice:CGFloat = 2
+    var pixelPerSlice:CGFloat = 4
     var pixelDeltaNote:CGFloat = 10
     let cutOff = 0
     override func draw(_ rect: CGRect) {
@@ -29,7 +29,9 @@ class SpectogramContainerView:UIView{
                 let v = slice[j]
                 let y = yAtIndex(index: j)
                 let rect = CGRect(x: CGFloat(index)*width, y:y0-yStart, width: width, height: y-y0)
-                let color = UIColor(red: 1-CGFloat(v),green:CGFloat(v),blue:0.0, alpha: 1.0)
+                //let color = UIColor(red: 1-CGFloat(v),green:CGFloat(v),blue:0.0, alpha: 1.0)
+                let color = UIColor(white: 1-CGFloat(v), alpha: 1.0)
+                
                 color.setFill()
                 ctx.fill(rect)
                 y0 = y
@@ -50,8 +52,16 @@ class SpectogramContainerView:UIView{
     }
     
     func getSize()-> CGSize{
-        let n = dataSource.numberOfSlices()
-        return CGSize(width:pixelPerSlice*CGFloat(n), height: yAtIndex(index: n-1))
+        if dataSource.numberOfSlices() > 0{
+            let slice = dataSource.sliceAtIndex(0)
+            let n = slice.count
+            let numberOfSlices = dataSource.numberOfSlices()
+            print("size:\(yAtIndex(index: n-1))")
+            return CGSize(width:pixelPerSlice*CGFloat(numberOfSlices), height: yAtIndex(index: n-1))
+            
+        }else{
+            return CGSize.zero
+        }
     }
     
     func yAtIndex(index:Int)->CGFloat{

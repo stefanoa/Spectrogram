@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         //var lastDate = Date()
         let sliceSize = 512
         let ds = 4
-        spectrogram = Spectogram(sliceSize: sliceSize, frequency:44100)
+        spectrogram = Spectogram(sliceSize: sliceSize)
         inputSlice = [Float](repeating: 0, count: sliceSize)
         inputNode?.installTap(onBus: bus, bufferSize: UInt32(sliceSize), format: inputNode?.inputFormat(forBus: bus)) {
             (buffer: AVAudioPCMBuffer!, time: AVAudioTime!) -> Void in
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
                         }
                         self.inputSlice[Int(j)] = ((c0+c1)/Float(2*ds))
                     }
-                    let normalizedMagnitudes = self.spectrogram.processSamples(samples: self.inputSlice)
+                    let normalizedMagnitudes = self.spectrogram.processSlice(samples: self.inputSlice)
                     self.spectrogramView.addSlice(slice: normalizedMagnitudes)
                     self.scrollView.contentSize = self.spectrogramView.frame.size
                 }

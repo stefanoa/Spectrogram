@@ -22,39 +22,33 @@ class SynteticViewController: UIViewController {
     var spectrogram:Spectogram!;
     var queue:DispatchQueue = DispatchQueue(label: "sampleproduction")
     var state:ProductionState = .idle
-    let sampleRate:Int = 11000
     let numberOfNotes = 88
+    let sampleRate:Int = 11000
     let sliceSize:Int = 1024
+    let slicingWindow:Int = 1024
     
     func synth(){
         if state == .idle {
             state = .started
             
-            //queue.async {
-                var hz:Float = 27.5000
-                let rate = self.sampleRate
-                let nOn = self.numberOfNotes
-                let duration = 10*sliceSize
-                var samples:[Float] = []
-                for note in 0...nOn-1{
-                    for i in 0...duration-1{
-                        let index = (i+note*duration)
-                        let x:Float = Float(index)/Float(rate)
-                        let k = (i+note*duration)%(sliceSize)
-      
-                        if k == 0 && samples.count >= sliceSize{
-                            //print("---\(hz),\(index)----")
-                            let sliceRes = self.spectrogram.processSamples(samples: samples)
-                            self.spectrogramView.addSlice(slice: sliceRes)
-                        }
-                        samples.append(sin(2*Float.pi*x*hz))
-                        if samples.count > sliceSize{
-                            samples.remove(at: 0)
-                        }
-                    }
-                    hz *= Spectogram.noteSeparation
+            var hz:Float = 27.5000
+            let rate = self.sampleRate
+            let nOn = self.numberOfNotes
+            let duration = sliceSize
+            var samples:[Float] = []
+            for note in 0...nOn-1{
+                for i in 0...duration-1{
+                    let index = (i+note*duration)
+                    let x:Float = Float(index)/Float(rate)
+                    samples.append(sin(2*Float.pi*x*hz))
                 }
-            //}
+                hz *= Spectogram.noteSeparation
+            }
+            
+            let slices = spectrogram.processSound(samples: samples, sliceSize: sliceSize, slicingWindow: slicingWindow)
+            for slice in slices{
+                spectrogramView.addSlice(slice: slice)
+            }
         }
     }
     
@@ -63,7 +57,7 @@ class SynteticViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        spectrogram = Spectogram(sliceSize: sliceSize, frequency:44100)
+        spectrogram = Spectogram(sliceSize: sliceSize)
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap))
         self.view.addGestureRecognizer(tapRecognizer)

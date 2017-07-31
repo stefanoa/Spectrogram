@@ -13,7 +13,6 @@ class Spectogram {
     static let noteSeparation:Float = 1.059463
     
     let sliceSize:Int
-    let frequency:Float
     let log2n:UInt
     let fftSetup:FFTSetup
     
@@ -25,9 +24,8 @@ class Spectogram {
     var windowed:[Float]
     var outputSlice:DSPSplitComplex
     
-    init(sliceSize:Int, frequency:Float){
+    init(sliceSize:Int){
         self.sliceSize = sliceSize
-        self.frequency = frequency
         log2n = UInt(round(log2(Double(sliceSize))))
         window = [Float](repeating: 0, count: sliceSize)
         windowed = [Float](repeating: 0, count: sliceSize)
@@ -40,8 +38,29 @@ class Spectogram {
         fftSetup = vDSP_create_fftsetup(log2n, Int32(kFFTRadix2))!
         vDSP_hann_window(&window, vDSP_Length(sliceSize), Int32(vDSP_HANN_NORM))
     }
-   
-    func processSamples(samples:[Float]) -> [Float]{
+    /*
+     let sampleRate:Int = 11000
+     let sliceSize:Int = 1024
+     let slicingWindow:Int = 1024/2
+     */
+    func processSound(samples:[Float],sliceSize:Int, slicingWindow:Int)-> [[Float]]{
+        var slices:[[Float]] = []
+        var slice:[Float] = []
+        for index in 0...samples.count-1{
+            let k = index%slicingWindow
+            if k == 0 && slice.count >= sliceSize{
+                let sliceRes = processSlice(samples: slice)
+                slices.append(sliceRes)
+            }
+            if slice.count > sliceSize{
+                slice.remove(at: 0)
+            }
+            slice.append(samples[index])
+        }
+        return slices
+    }
+    
+    func processSlice(samples:[Float]) -> [Float]{
         let size = UInt32(sliceSize)
         let csize = size/2
         
