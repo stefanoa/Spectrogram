@@ -56,7 +56,6 @@ class SpectogramContainerView:UIView{
             let slice = dataSource.sliceAtIndex(0)
             let n = slice.count
             let numberOfSlices = dataSource.numberOfSlices()
-            print("size:\(yAtIndex(index: n-1))")
             return CGSize(width:pixelPerSlice*CGFloat(numberOfSlices), height: yAtIndex(index: n-1))
             
         }else{
