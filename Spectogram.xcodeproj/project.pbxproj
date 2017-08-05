@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B6158781F35F52B00831B69 /* SpectogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6158771F35F52B00831B69 /* SpectogramViewController.swift */; };
 		7BC988301F1A9A9100F40173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC9882F1F1A9A9100F40173 /* AppDelegate.swift */; };
 		7BC988321F1A9A9100F40173 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC988311F1A9A9100F40173 /* ViewController.swift */; };
 		7BC988351F1A9A9100F40173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC988331F1A9A9100F40173 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		7B048E811F204A8E00067107 /* fft.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = fft.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7B5A710C1F2E67EE00631094 /* play.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = play.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7B6158771F35F52B00831B69 /* SpectogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpectogramViewController.swift; sourceTree = "<group>"; };
 		7BC9882C1F1A9A9100F40173 /* Spectogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spectogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC9882F1F1A9A9100F40173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC988311F1A9A9100F40173 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				7BEB8F201F238CD8001073AA /* SynteticViewController.swift */,
 				7B048E811F204A8E00067107 /* fft.playground */,
 				7B5A710C1F2E67EE00631094 /* play.playground */,
+				7B6158771F35F52B00831B69 /* SpectogramViewController.swift */,
 			);
 			path = Spectogram;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				7BF993FA1F2E2C7C005E018B /* SpectogramContainerView.swift in Sources */,
 				7BC988501F1B72BF00F40173 /* FFTView.swift in Sources */,
 				7BC988321F1A9A9100F40173 /* ViewController.swift in Sources */,
+				7B6158781F35F52B00831B69 /* SpectogramViewController.swift in Sources */,
 				7BC988301F1A9A9100F40173 /* AppDelegate.swift in Sources */,
 				7BC988521F1B815100F40173 /* SpectogramView.swift in Sources */,
 			);

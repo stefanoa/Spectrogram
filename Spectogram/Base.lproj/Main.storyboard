@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Syntetic View Controller-->
+        <!--Spectogram View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SynteticViewController" customModule="Spectogram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SpectogramViewController" customModule="Spectogram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,16 +24,42 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4d-Es-yPM" customClass="SpectogramView" customModule="Spectogram" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaF-xu-fNs">
+                                <rect key="frame" x="0.0" y="577" width="375" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hki-aR-JtG">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="90B-RQ-lPY"/>
+                                        </constraints>
+                                        <state key="normal" title="Record"/>
+                                        <connections>
+                                            <action selector="recordOrStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OI8-oT-3rn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hki-aR-JtG" secondAttribute="bottom" id="B05-ph-U0z"/>
+                                    <constraint firstItem="hki-aR-JtG" firstAttribute="leading" secondItem="gaF-xu-fNs" secondAttribute="leading" id="LE7-VO-T5P"/>
+                                    <constraint firstAttribute="height" constant="90" id="etC-gL-aJP"/>
+                                    <constraint firstItem="hki-aR-JtG" firstAttribute="top" secondItem="gaF-xu-fNs" secondAttribute="top" id="o7r-ah-Qt3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="K4d-Es-yPM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8Pl-oy-Cbd"/>
+                            <constraint firstAttribute="trailing" secondItem="gaF-xu-fNs" secondAttribute="trailing" id="8mP-ZJ-BCW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K4d-Es-yPM" secondAttribute="bottom" id="J4W-K9-bh3"/>
+                            <constraint firstItem="gaF-xu-fNs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VR8-E1-LDl"/>
                             <constraint firstItem="K4d-Es-yPM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eZK-1o-Tsb"/>
                             <constraint firstAttribute="trailing" secondItem="K4d-Es-yPM" secondAttribute="trailing" id="j1G-We-kdu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gaF-xu-fNs" secondAttribute="bottom" id="wdB-KB-U76"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="recordButton" destination="hki-aR-JtG" id="fXE-h5-qNc"/>
                         <outlet property="spectrogramView" destination="K4d-Es-yPM" id="5pi-s3-WnK"/>
                     </connections>
                 </viewController>

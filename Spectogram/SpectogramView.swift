@@ -29,6 +29,12 @@ class SpectogramView: UIScrollView,SpectogramDataSource {
         containerView.reloadData()
     }
     
+    func clearSlices(){
+        slices.removeAll()
+        self.contentSize = containerView.getSize()
+        containerView.reloadData()
+    }
+    
     func numberOfSlices() -> Int {
         return slices.count
     }
