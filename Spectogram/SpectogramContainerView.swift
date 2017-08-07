@@ -18,6 +18,8 @@ class SpectogramContainerView:UIView{
     var pixelPerSlice:CGFloat = 4
     var pixelDeltaNote:CGFloat = 10
     let cutOff = 0
+    var rate:Float = 41100
+    
     override func draw(_ rect: CGRect) {
         if dataSource.numberOfSlices()>0 {
             guard let ctx = UIGraphicsGetCurrentContext() else { return }
@@ -37,6 +39,22 @@ class SpectogramContainerView:UIView{
                     ctx.fill(rect)
                     y0 = y
                 }
+            }
+            let slice = dataSource.sliceAtIndex(0)
+            let sliceSize = Float(slice.count)
+            var ci:Float = 55
+            UIColor.darkGray.setStroke()
+            let size = getSize()
+            
+            for _ in 1...7 {
+                let kf = ci*sliceSize/rate
+                let k = Int(kf)
+                let y = yAtIndex(index: k)-yStart
+                let line = UIBezierPath()
+                line.move(to: CGPoint(x: 0, y: y))
+                line.addLine(to: CGPoint(x: size.width, y: y))
+                line.stroke()
+                ci*=2
             }
             /*
              UIColor.white.setStroke()

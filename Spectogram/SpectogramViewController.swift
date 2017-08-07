@@ -79,6 +79,7 @@ class SpectogramViewController: UIViewController {
         inputNode = audioEngine.inputNode
         let bus = 0
         let ds:UInt32 = 4
+        spectrogramView.rate = 41100/Float(ds)
         inputNode?.installTap(onBus: bus, bufferSize: UInt32(sliceSize), format: inputNode?.inputFormat(forBus: bus)) {
             (buffer: AVAudioPCMBuffer!, time: AVAudioTime!) -> Void in
             
@@ -93,7 +94,7 @@ class SpectogramViewController: UIViewController {
                         c1 += floatChannelData[1][index]
                         
                     }
-                    self.samples.append((c0+c1)/(Float(ds)*2))
+                    self.samples.append(c0+c1)
                 }
             }
             print("rate:\(buffer.format.sampleRate)")

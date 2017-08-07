@@ -13,11 +13,13 @@ class SpectogramView: UIScrollView,SpectogramDataSource {
     var pixelPerSlice:CGFloat = 2
     var slicesViews:[UIView] = []
     var slices:[[Float]] = []
+    var rate:Float = 41100
     
     func prepare(){
         let containerFrame = CGRect(x:0,y:0,width:self.frame.size.width,height:self.frame.size.height)
         containerView = SpectogramContainerView(frame: containerFrame)
         containerView.backgroundColor = UIColor.white
+        containerView.rate = self.rate
         self.addSubview(containerView)
         containerView.dataSource = self
         self.contentSize = containerView.getSize()
