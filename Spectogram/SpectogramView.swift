@@ -8,12 +8,13 @@
 
 import UIKit
 
-class SpectogramView: UIScrollView,SpectogramDataSource {
+class SpectogramView: UIScrollView, SpectogramDataSource, SpectogramDelegate, FFTDelegate {
     var containerView:SpectogramContainerView!
     var pixelPerSlice:CGFloat = 2
     var slicesViews:[UIView] = []
     var slices:[[Float]] = []
     var rate:Float = 41100
+    var currentFFTview:FFTView?
     
     func prepare(){
         let containerFrame = CGRect(x:0,y:0,width:self.frame.size.width,height:self.frame.size.height)
@@ -22,6 +23,7 @@ class SpectogramView: UIScrollView,SpectogramDataSource {
         containerView.rate = self.rate
         self.addSubview(containerView)
         containerView.dataSource = self
+        containerView.delegate = self
         self.contentSize = containerView.getSize()
     }
     
@@ -43,5 +45,27 @@ class SpectogramView: UIScrollView,SpectogramDataSource {
     
     func sliceAtIndex(_ index: Int) -> [Float] {
         return slices[index]
+    }
+    
+    func selectedSliceAtIndex(_ index: Int, slice: [Float]) {
+        if let currentFFTView = self.currentFFTview {
+            currentFFTView.removeFromSuperview()
+        }
+        let width = self.frame.size.width
+        let height = containerView.getSize().height
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        let currentFFTview  = FFTView(frame:frame)
+        currentFFTview.slice = slice
+        currentFFTview.delegate = self
+        containerView.addSubview(currentFFTview)
+        self.currentFFTview = currentFFTview
+        print("selected slice at:\(index)")
+    }
+    
+    func didTap() {
+        if let currentFFTview = currentFFTview{
+            currentFFTview.removeFromSuperview()
+            self.currentFFTview = nil
+        }
     }
 }
